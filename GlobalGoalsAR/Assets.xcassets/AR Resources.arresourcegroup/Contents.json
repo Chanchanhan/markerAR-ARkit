@@ -1,0 +1,20 @@
+{
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  },
+  "resources" : [
+    {
+      "filename" : "Different Countries.arreferenceimage"
+    },
+    {
+      "filename" : "Freedom.arreferenceimage"
+    },
+    {
+      "filename" : "global.arreferenceimage"
+    },
+    {
+      "filename" : "n-Action.arreferenceimage"
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="iN0-l3-epB" customClass="ZHPlayerOperationView" customModule="Tracked_Images" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="213"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kew-Cg-Exi">
+                    <rect key="frame" x="0.0" y="173" width="375" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uGH-j9-DSx">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="79T-Zf-vP6"/>
+                                <constraint firstAttribute="width" constant="50" id="mPy-dt-L4U"/>
+                            </constraints>
+                            <state key="normal" image="Play"/>
+                            <state key="selected" image="Stop"/>
+                            <connections>
+                                <action selector="playorPause:" destination="iN0-l3-epB" eventType="touchUpInside" id="XAC-PY-yHt"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jq9-JU-yD6">
+                            <rect key="frame" x="325" y="0.0" width="50" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="EwO-j9-eJ4"/>
+                                <constraint firstAttribute="height" constant="40" id="bV5-XD-dbL"/>
+                            </constraints>
+                            <state key="normal" image="full"/>
+                            <state key="selected" image="small"/>
+                            <connections>
+                                <action selector="rotateScreen:" destination="iN0-l3-epB" eventType="touchUpInside" id="L7V-lj-xLN"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hE1-Qx-xRW">
+                            <rect key="frame" x="50" y="0.0" width="50" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="6FK-5O-ZU0"/>
+                                <constraint firstAttribute="height" constant="40" id="uEy-yu-1aV"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5y-Fa-K3A">
+                            <rect key="frame" x="275" y="0.0" width="50" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Y3J-tf-qdT"/>
+                                <constraint firstAttribute="width" constant="50" id="avd-qQ-Vat"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bvd-J2-KRB">
+                            <rect key="frame" x="110" y="19" width="155" height="2"/>
+                            <color key="progressTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                        </progressView>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="aVp-G7-tpR">
+                            <rect key="frame" x="108" y="5" width="159" height="31"/>
+                            <color key="minimumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="maximumTrackTintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="dragging:" destination="iN0-l3-epB" eventType="valueChanged" id="YrW-ZP-Gay"/>
+                                <action selector="touchDown:" destination="iN0-l3-epB" eventType="touchDown" id="dkp-1u-1Rk"/>
+                                <action selector="touchUp:" destination="iN0-l3-epB" eventType="touchUpInside" id="bEx-Y1-QrP"/>
+                            </connections>
+                        </slider>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="uGH-j9-DSx" firstAttribute="leading" secondItem="Kew-Cg-Exi" secondAttribute="leading" id="1FE-eY-XH5"/>
+                        <constraint firstItem="aVp-G7-tpR" firstAttribute="centerX" secondItem="Kew-Cg-Exi" secondAttribute="centerX" id="9J3-53-iTr"/>
+                        <constraint firstItem="hE1-Qx-xRW" firstAttribute="leading" secondItem="uGH-j9-DSx" secondAttribute="trailing" id="AAD-ej-f1b"/>
+                        <constraint firstItem="jq9-JU-yD6" firstAttribute="leading" secondItem="i5y-Fa-K3A" secondAttribute="trailing" id="FmH-9W-3Ve"/>
+                        <constraint firstAttribute="bottom" secondItem="uGH-j9-DSx" secondAttribute="bottom" id="MgP-3F-tDt"/>
+                        <constraint firstItem="bvd-J2-KRB" firstAttribute="centerX" secondItem="Kew-Cg-Exi" secondAttribute="centerX" id="NvV-p2-lK1"/>
+                        <constraint firstItem="i5y-Fa-K3A" firstAttribute="top" secondItem="Kew-Cg-Exi" secondAttribute="top" id="SPQ-zy-1iU"/>
+                        <constraint firstItem="hE1-Qx-xRW" firstAttribute="top" secondItem="Kew-Cg-Exi" secondAttribute="top" id="TKL-ap-ifW"/>
+                        <constraint firstAttribute="height" constant="40" id="UEg-dJ-Z0x"/>
+                        <constraint firstItem="aVp-G7-tpR" firstAttribute="centerY" secondItem="Kew-Cg-Exi" secondAttribute="centerY" id="VnQ-8D-92Q"/>
+                        <constraint firstItem="jq9-JU-yD6" firstAttribute="top" secondItem="Kew-Cg-Exi" secondAttribute="top" id="Xev-ct-k8U"/>
+                        <constraint firstItem="aVp-G7-tpR" firstAttribute="leading" secondItem="hE1-Qx-xRW" secondAttribute="trailing" constant="10" id="eXY-O0-ZGJ"/>
+                        <constraint firstItem="bvd-J2-KRB" firstAttribute="centerY" secondItem="Kew-Cg-Exi" secondAttribute="centerY" id="fTs-iL-r8C"/>
+                        <constraint firstAttribute="trailing" secondItem="jq9-JU-yD6" secondAttribute="trailing" id="gvw-bf-EtR"/>
+                        <constraint firstItem="i5y-Fa-K3A" firstAttribute="leading" secondItem="aVp-G7-tpR" secondAttribute="trailing" constant="10" id="otM-tA-XAB"/>
+                        <constraint firstItem="bvd-J2-KRB" firstAttribute="width" secondItem="aVp-G7-tpR" secondAttribute="width" id="wwx-kM-Frg"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jHe-B7-40D">
+                    <rect key="frame" x="0.0" y="40" width="375" height="133"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Kew-Cg-Exi" firstAttribute="top" secondItem="jHe-B7-40D" secondAttribute="bottom" id="1Mv-Am-6PP"/>
+                <constraint firstItem="jHe-B7-40D" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="AR5-PS-dm5"/>
+                <constraint firstAttribute="bottom" secondItem="Kew-Cg-Exi" secondAttribute="bottom" id="Hvv-Vh-qHP"/>
+                <constraint firstAttribute="trailing" secondItem="jHe-B7-40D" secondAttribute="trailing" id="TDj-fv-4ZQ"/>
+                <constraint firstAttribute="trailing" secondItem="Kew-Cg-Exi" secondAttribute="trailing" id="iBx-uZ-ei4"/>
+                <constraint firstItem="Kew-Cg-Exi" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kiU-ad-UO7"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bottomBar" destination="Kew-Cg-Exi" id="Mq4-bc-zvo"/>
+                <outlet property="currentTime" destination="hE1-Qx-xRW" id="O12-UQ-R8c"/>
+                <outlet property="loadedProgress" destination="bvd-J2-KRB" id="ZZP-Su-xSd"/>
+                <outlet property="play" destination="uGH-j9-DSx" id="jgS-fA-3nk"/>
+                <outlet property="playProgress" destination="aVp-G7-tpR" id="XNZ-6a-cYH"/>
+                <outlet property="rotation" destination="jq9-JU-yD6" id="bdU-fL-qMW"/>
+                <outlet property="tapView" destination="jHe-B7-40D" id="b3e-gu-nfe"/>
+                <outlet property="totalTime" destination="i5y-Fa-K3A" id="yAV-Nq-acN"/>
+            </connections>
+            <point key="canvasLocation" x="71" y="-198"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Play" width="17" height="17"/>
+        <image name="Stop" width="17" height="17"/>
+        <image name="full" width="20" height="20"/>
+        <image name="small" width="20" height="20"/>
+    </resources>
+</document>

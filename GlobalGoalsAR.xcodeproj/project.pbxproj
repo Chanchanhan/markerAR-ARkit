@@ -14,6 +14,12 @@
 		0E09D1FD21411DC0003DBBCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E09D1FC21411DC0003DBBCB /* Assets.xcassets */; };
 		0E09D20021411DC0003DBBCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E09D1FE21411DC0003DBBCB /* LaunchScreen.storyboard */; };
 		0E09D20B21411DC0003DBBCB /* GlobalGoalsARUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E09D20A21411DC0003DBBCB /* GlobalGoalsARUITests.swift */; };
+		0EF464D721411EF800AD7CEB /* ZHPlayerOperationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF464D321411EF800AD7CEB /* ZHPlayerOperationView.swift */; };
+		0EF464D821411EF800AD7CEB /* ZHPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF464D421411EF800AD7CEB /* ZHPlayerView.swift */; };
+		0EF464D921411EF800AD7CEB /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF464D521411EF800AD7CEB /* String+Extension.swift */; };
+		0EF464DA21411EF800AD7CEB /* ZHPlayerOperationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0EF464D621411EF800AD7CEB /* ZHPlayerOperationView.xib */; };
+		0EF464DC21411F9800AD7CEB /* ViewController+ARSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF464DB21411F9800AD7CEB /* ViewController+ARSessionDelegate.swift */; };
+		0EF464DE21411FB200AD7CEB /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF464DD21411FB200AD7CEB /* StatusViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +44,12 @@
 		0E09D20621411DC0003DBBCB /* GlobalGoalsARUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GlobalGoalsARUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E09D20A21411DC0003DBBCB /* GlobalGoalsARUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalGoalsARUITests.swift; sourceTree = "<group>"; };
 		0E09D20C21411DC0003DBBCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EF464D321411EF800AD7CEB /* ZHPlayerOperationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZHPlayerOperationView.swift; sourceTree = "<group>"; };
+		0EF464D421411EF800AD7CEB /* ZHPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZHPlayerView.swift; sourceTree = "<group>"; };
+		0EF464D521411EF800AD7CEB /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		0EF464D621411EF800AD7CEB /* ZHPlayerOperationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZHPlayerOperationView.xib; sourceTree = "<group>"; };
+		0EF464DB21411F9800AD7CEB /* ViewController+ARSessionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ViewController+ARSessionDelegate.swift"; sourceTree = "<group>"; };
+		0EF464DD21411FB200AD7CEB /* StatusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +91,12 @@
 		0E09D1F221411DBD003DBBCB /* GlobalGoalsAR */ = {
 			isa = PBXGroup;
 			children = (
+				0EF464D221411EF800AD7CEB /* Player */,
 				0E09D1F321411DBD003DBBCB /* AppDelegate.swift */,
 				0E09D1F521411DBD003DBBCB /* art.scnassets */,
 				0E09D1F721411DBD003DBBCB /* ViewController.swift */,
+				0EF464DD21411FB200AD7CEB /* StatusViewController.swift */,
+				0EF464DB21411F9800AD7CEB /* ViewController+ARSessionDelegate.swift */,
 				0E09D1F921411DBD003DBBCB /* Main.storyboard */,
 				0E09D1FC21411DC0003DBBCB /* Assets.xcassets */,
 				0E09D1FE21411DC0003DBBCB /* LaunchScreen.storyboard */,
@@ -97,6 +112,17 @@
 				0E09D20C21411DC0003DBBCB /* Info.plist */,
 			);
 			path = GlobalGoalsARUITests;
+			sourceTree = "<group>";
+		};
+		0EF464D221411EF800AD7CEB /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				0EF464D321411EF800AD7CEB /* ZHPlayerOperationView.swift */,
+				0EF464D421411EF800AD7CEB /* ZHPlayerView.swift */,
+				0EF464D521411EF800AD7CEB /* String+Extension.swift */,
+				0EF464D621411EF800AD7CEB /* ZHPlayerOperationView.xib */,
+			);
+			path = Player;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,6 +208,7 @@
 			files = (
 				0E09D1F621411DBD003DBBCB /* art.scnassets in Resources */,
 				0E09D20021411DC0003DBBCB /* LaunchScreen.storyboard in Resources */,
+				0EF464DA21411EF800AD7CEB /* ZHPlayerOperationView.xib in Resources */,
 				0E09D1FD21411DC0003DBBCB /* Assets.xcassets in Resources */,
 				0E09D1FB21411DBD003DBBCB /* Main.storyboard in Resources */,
 			);
@@ -201,8 +228,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EF464DE21411FB200AD7CEB /* StatusViewController.swift in Sources */,
 				0E09D1F821411DBD003DBBCB /* ViewController.swift in Sources */,
 				0E09D1F421411DBD003DBBCB /* AppDelegate.swift in Sources */,
+				0EF464D721411EF800AD7CEB /* ZHPlayerOperationView.swift in Sources */,
+				0EF464DC21411F9800AD7CEB /* ViewController+ARSessionDelegate.swift in Sources */,
+				0EF464D921411EF800AD7CEB /* String+Extension.swift in Sources */,
+				0EF464D821411EF800AD7CEB /* ZHPlayerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
