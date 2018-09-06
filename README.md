@@ -8,4 +8,4 @@ Platform:
 
 To see:
 
-![demo](/Users/qqh/Developer/Project/iOSProject/GlobalGoalsAR/demo.gif)
+![demo](https://github.com/mercari-cn-hackathon/Chanchanhan/blob/master/demo.gif)
