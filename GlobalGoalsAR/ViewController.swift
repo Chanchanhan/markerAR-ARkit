@@ -129,10 +129,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     public func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
         let node = SCNNode()
-        self.diffView.Pause()
-        self.globalView.Pause()
-        self.actionView.Pause()
-        self.freedomView.Pause()
+  
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.diffView.isHidden = true
             self.globalView.isHidden = true
