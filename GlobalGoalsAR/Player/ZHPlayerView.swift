@@ -27,6 +27,7 @@ class ZHPlayerView: UIView {
             addObserverProperty()
             
             playerTimeObserve = observePlayerTimeWithItem(item: playerItem!)
+            player.volume = 0.0
         }
     }
     
