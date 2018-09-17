@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GlobalGoalsAR/ViewController.swift"
-            timestampString = "558808716.498279"
+            timestampString = "558839660.8993829"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
             landmarkName = "renderer(_:nodeFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,27 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GlobalGoalsAR/ViewController.swift"
-            timestampString = "558808716.4990619"
+            timestampString = "558839660.89983"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
-            landmarkName = "StopPlay()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GlobalGoalsAR/ViewController.swift"
-            timestampString = "558808716.499802"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
             landmarkName = "renderer(_:nodeFor:)"
             landmarkType = "7">
          </BreakpointContent>
