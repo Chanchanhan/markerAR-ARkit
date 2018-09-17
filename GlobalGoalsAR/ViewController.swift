@@ -15,42 +15,35 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var magicSwitch: UISwitch!
     @IBOutlet weak var blurView: UIVisualEffectView!
-
+    let width = UIScreen.main.bounds.size.width
+    let height = UIScreen.main.bounds.size.height
     // Create video player
     
     let diffView : ZHPlayerView={
         let playView = ZHPlayerView(frame:  CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height*0.9))
         let url = Bundle.main.url(forResource: "Different Countries", withExtension: "mp4", subdirectory: "art.scnassets")
         playView.urlSrting = url?.absoluteString
-        playView.isHidden = true
-        playView.Pause()
         return playView
     }()
     let globalView : ZHPlayerView={
         let playView = ZHPlayerView(frame:  CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height*0.9))
         let url = Bundle.main.url(forResource: "global", withExtension: "mp4", subdirectory: "art.scnassets")
         playView.urlSrting = url?.absoluteString
-        playView.isHidden = true
-        playView.Pause()
         return playView
     }()
     let actionView : ZHPlayerView={
         let playView = ZHPlayerView(frame:  CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height*0.9))
         let url = Bundle.main.url(forResource: "Numbers In Action", withExtension: "mp4", subdirectory: "art.scnassets")
         playView.urlSrting = url?.absoluteString
-        playView.isHidden = true
-        playView.Pause()
         return playView
     }()
     let freedomView : ZHPlayerView={
         let playView = ZHPlayerView(frame:  CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height*0.9))
         let url = Bundle.main.url(forResource: "Freedom", withExtension: "mp4", subdirectory: "art.scnassets")
         playView.urlSrting = url?.absoluteString
-        playView.isHidden = true
-        playView.Pause()
         return playView
     }()
-    
+
     /// The view controller that displays the status and "restart experience" UI.
     lazy var statusViewController: StatusViewController = {
         return children.lazy.compactMap({ $0 as? StatusViewController }).first!
@@ -99,9 +92,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @objc func CheckPlay()
     {
         while(true){
-            let width = self.view.frame.width
-            let height = self.view.frame.height
             var stateDict:[String : Bool] = (["Different Countries":false, "global":false, "Freedom":false,"n-Action":false])
+            var voiceDict:[String : GLfloat] = (["Different Countries":0, "global":0, "Freedom":0,"n-Action":0])
             if (magicSwitch.isOn){
                 let currentFrame = session.currentFrame!
                 for anchor in currentFrame.anchors{
@@ -113,6 +105,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                         let y = CGFloat(projectedPoint.y)
                         if(x > 0 && x < width && y > 0 && y < height) {
                             state = true
+                            let distToCenter =  sqrtf(Float((x-width/2)*(x-width/2)+(y-width/2)*(y-width/2)))
+                            let max_dist = sqrtf(Float(width*width+height*height)) / 2
+                            voiceDict[imageAnchor.referenceImage.name!] =  pow(1.0 - (distToCenter/max_dist),2.0)
                         }
                         stateDict[imageAnchor.referenceImage.name!] = state
                     }
@@ -127,25 +122,25 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             }
             if(stateDict["Different Countries"]!){
                 self.diffView.Play()
-                self.diffView.playerLayer.player?.volume = 0.8
+                self.diffView.playerLayer.player?.volume = voiceDict["Different Countries"]!
             }else {
                 self.diffView.Pause()
             }
             if(stateDict["global"]!){
                 self.globalView.Play()
-                self.globalView.playerLayer.player?.volume = 0.8
+                self.globalView.playerLayer.player?.volume = voiceDict["global"]!
             }else{
                 self.globalView.Pause()
             }
             if(stateDict["Freedom"]!){
                 self.freedomView.Play()
-                self.freedomView.playerLayer.player?.volume = 0.8
+                self.freedomView.playerLayer.player?.volume = voiceDict["Freedom"]!
             }else{
                 self.freedomView.Pause()
             }
             if(stateDict["n-Action"]!){
                 self.actionView.Play()
-                self.actionView.playerLayer.player?.volume = 0.8
+                self.actionView.playerLayer.player?.volume = voiceDict["n-Action"]!
             }else{
                 self.actionView.Pause()
             }
