@@ -17,6 +17,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet weak var blurView: UIVisualEffectView!
     let width = UIScreen.main.bounds.size.width
     let height = UIScreen.main.bounds.size.height
+    var viewDict:[String : ZHPlayerView]!
+    let nameDict = ["Different Countries", "global", "Freedom","n-Action"]
+
     // Create video player
     
     let diffView : ZHPlayerView={
@@ -71,6 +74,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         statusViewController.restartExperienceHandler = { [unowned self] in
             self.restartExperience()
         }
+        viewDict = (["Different Countries":self.diffView, "global":self.globalView, "Freedom":self.freedomView,"n-Action":self.actionView])
         Thread.detachNewThreadSelector(#selector(CheckPlay), toTarget: self, with: nil)
 
     }
@@ -103,47 +107,33 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                         let projectedPoint = sceneView.projectPoint(X)
                         let x = CGFloat(projectedPoint.x)
                         let y = CGFloat(projectedPoint.y)
-                        if(x > 0 && x < width && y > 0 && y < height) {
+                        if(x > -width/2 && x < width && y > -height/2 && y < height) {
                             state = true
                             let distToCenter =  sqrtf(Float((x-width/2)*(x-width/2)+(y-width/2)*(y-width/2)))
                             let max_dist = sqrtf(Float(width*width+height*height)) / 2
-                            voiceDict[imageAnchor.referenceImage.name!] =  pow(1.0 - (distToCenter/max_dist),2.0)
+                            var voice = 1.0 - (distToCenter/max_dist)
+                            if(voice<0){
+                               voice = 0
+                            }
+                            voiceDict[imageAnchor.referenceImage.name!] =  voice
                         }
                         stateDict[imageAnchor.referenceImage.name!] = state
                     }
                 }
             }
-            DispatchQueue.main.async {
-                self.diffView.isHidden = !stateDict["Different Countries"]!
-                self.globalView.isHidden = !stateDict["global"]!
-                self.freedomView.isHidden = !stateDict["Freedom"]!
-                self.diffView.isHidden = !stateDict["n-Action"]!
-                
+        
+            for name in nameDict{
+                DispatchQueue.main.async {
+                    self.viewDict[name]!.isHidden = !stateDict[name]!
+                }
+                if(stateDict[name]!){
+                    self.viewDict[name]!.Play()
+                    self.viewDict[name]!.playerLayer.player?.volume = voiceDict[name]!
+                }else {
+                    self.viewDict[name]!.Pause()
+                }
             }
-            if(stateDict["Different Countries"]!){
-                self.diffView.Play()
-                self.diffView.playerLayer.player?.volume = voiceDict["Different Countries"]!
-            }else {
-                self.diffView.Pause()
-            }
-            if(stateDict["global"]!){
-                self.globalView.Play()
-                self.globalView.playerLayer.player?.volume = voiceDict["global"]!
-            }else{
-                self.globalView.Pause()
-            }
-            if(stateDict["Freedom"]!){
-                self.freedomView.Play()
-                self.freedomView.playerLayer.player?.volume = voiceDict["Freedom"]!
-            }else{
-                self.freedomView.Pause()
-            }
-            if(stateDict["n-Action"]!){
-                self.actionView.Play()
-                self.actionView.playerLayer.player?.volume = voiceDict["n-Action"]!
-            }else{
-                self.actionView.Pause()
-            }
+           
         }
        
         
@@ -182,14 +172,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         if let imageAnchor = anchor as? ARImageAnchor {
             // Create a plane
             let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
-            if imageAnchor.referenceImage.name == "Different Countries" {
-                plane.firstMaterial?.diffuse.contents = self.diffView.playerLayer.player
-            }else if imageAnchor.referenceImage.name ==  "global"{
-                plane.firstMaterial?.diffuse.contents = self.globalView.playerLayer.player
-            }else if imageAnchor.referenceImage.name ==  "Freedom"{
-                plane.firstMaterial?.diffuse.contents = self.freedomView.playerLayer.player
-            }else if imageAnchor.referenceImage.name ==  "n-Action"{
-                plane.firstMaterial?.diffuse.contents = self.actionView.playerLayer.player
+//            if imageAnchor.referenceImage.name == "Different Countries" {
+//                plane.firstMaterial?.diffuse.contents = self.diffView.playerLayer.player
+//            }else if imageAnchor.referenceImage.name ==  "global"{
+//                plane.firstMaterial?.diffuse.contents = self.globalView.playerLayer.player
+//            }else if imageAnchor.referenceImage.name ==  "Freedom"{
+//                plane.firstMaterial?.diffuse.contents = self.freedomView.playerLayer.player
+//            }else if imageAnchor.referenceImage.name ==  "n-Action"{
+//                plane.firstMaterial?.diffuse.contents = self.actionView.playerLayer.player
+//            }
+            DispatchQueue.main.async {
+                plane.firstMaterial?.diffuse.contents = self.viewDict[imageAnchor.referenceImage.name!]!.playerLayer.player
             }
             let planeNode = SCNNode(geometry: plane)
             
