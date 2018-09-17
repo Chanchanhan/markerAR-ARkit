@@ -6,6 +6,12 @@ Platform:
 
 **ios12 + Xcode10_beta + ARkit2**
 
+**What can it do?**
+1. Show video based on image detectd.
+2.  Stop play while image is out of screen.
+3. drag time as you like.
+4. the voice is change accoding to the place of image , it will be more loudly as more close to center of screen.
+
 To see:
 
 ![demo](https://github.com/mercari-cn-hackathon/Chanchanhan/blob/master/demo2.gif)
