@@ -107,7 +107,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                         let projectedPoint = sceneView.projectPoint(X)
                         let x = CGFloat(projectedPoint.x)
                         let y = CGFloat(projectedPoint.y)
-                        if(x > -width/2 && x < width && y > -height/2 && y < height) {
+                        if(x > -width/3 && x < width*1.2 && y > -height/3 && y < height*1.2) {
                             state = true
                             let distToCenter =  sqrtf(Float((x-width/2)*(x-width/2)+(y-width/2)*(y-width/2)))
                             let max_dist = sqrtf(Float(width*width+height*height)) / 2
@@ -115,7 +115,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                             if(voice<0){
                                voice = 0
                             }
-                            voiceDict[imageAnchor.referenceImage.name!] =  voice
+                            voiceDict[imageAnchor.referenceImage.name!] =  voice*voice
                         }
                         stateDict[imageAnchor.referenceImage.name!] = state
                     }
@@ -124,9 +124,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
             for name in nameDict{
                 DispatchQueue.main.async {
-                    self.viewDict[name]!.isHidden = !stateDict[name]!
+                    self.viewDict[name]!.isHidden = (!stateDict[name]! && !(self.viewDict[name]?.Full())!)
                 }
-                if(stateDict[name]!){
+                if(stateDict[name]! || (self.viewDict[name]?.Full())!){
                     self.viewDict[name]!.Play()
                     self.viewDict[name]!.playerLayer.player?.volume = voiceDict[name]!
                 }else {

@@ -113,12 +113,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </sceneKitView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NQy-mu-WCn">
-                                <rect key="frame" x="135.5" y="540" width="51" height="31"/>
+                                <rect key="frame" x="135.5" y="520" width="51" height="31"/>
                                 <connections>
                                     <action selector="switchOnMagic:" destination="OqC-eh-srV" eventType="valueChanged" id="9K1-dd-c9S"/>
                                 </connections>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toC-GR-hJ8">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="toC-GR-hJ8">
                                 <rect key="frame" x="138.5" y="480" width="43.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -145,7 +145,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="BI8-g7-CxW" secondAttribute="trailing" id="2Za-G2-832"/>
-                            <constraint firstItem="1Va-fj-pHE" firstAttribute="bottom" secondItem="NQy-mu-WCn" secondAttribute="top" constant="28" id="3Lg-ax-8hV"/>
+                            <constraint firstItem="1Va-fj-pHE" firstAttribute="bottom" secondItem="NQy-mu-WCn" secondAttribute="top" constant="48" id="3Lg-ax-8hV"/>
                             <constraint firstAttribute="bottom" secondItem="7ly-nZ-YtB" secondAttribute="bottom" id="3vW-7M-HNR"/>
                             <constraint firstItem="NQy-mu-WCn" firstAttribute="centerX" secondItem="toC-GR-hJ8" secondAttribute="centerX" id="77T-Py-xWc"/>
                             <constraint firstItem="37w-GD-rpc" firstAttribute="top" secondItem="1Va-fj-pHE" secondAttribute="top" id="Aed-8p-6xU"/>

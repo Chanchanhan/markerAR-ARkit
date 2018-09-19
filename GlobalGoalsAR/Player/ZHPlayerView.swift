@@ -38,7 +38,7 @@ class ZHPlayerView: UIView {
     func Pause(){
         player.pause()
     }
-    
+   
     fileprivate lazy var operationview: ZHPlayerOperationView = ZHPlayerOperationView.operationView()
    
     override init(frame: CGRect) {
@@ -136,20 +136,36 @@ class ZHPlayerView: UIView {
 extension ZHPlayerView{
     
     fileprivate func setupUI(){
-        
-//        self.layer.addSublayer(playerLayer)
-        
+        self.layer.addSublayer(playerLayer)
         addSubview(operationview)
-        
         operationview.sliderChanged = {[weak self] (value) in
             
             let time = CMTime(seconds: value, preferredTimescale: CMTimeScale(1*UInt64(NSEC_PER_SEC)))
             
             self?.playerItem?.seek(to: time)
         }
+        Thread.detachNewThreadSelector(#selector(CheckPlay), toTarget: self, with: nil)
 
     }
-    
+    @objc func CheckPlay()
+    {
+        while(true){
+            if(operationview.screenType == .fullScreen){
+                DispatchQueue.main.async {
+                    self.playerLayer.isHidden  = false
+                }
+                player.volume  = 1
+            }else{
+                DispatchQueue.main.async {
+                    self.playerLayer.isHidden  = true
+                }
+            }
+            
+        }
+    }
+    func Full()-> Bool{
+        return operationview.screenType == .fullScreen
+    }
     fileprivate func addObserverProperty(){
         
         playerItem?.addObserver(self, forKeyPath: "status", options: .new, context: nil)

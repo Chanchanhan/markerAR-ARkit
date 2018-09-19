@@ -151,7 +151,7 @@ class ZHPlayerOperationView: UIView {
                 //全屏状态
                 UIView.animate(withDuration: 0.3, animations: {
                     
-                    superView.transform = CGAffineTransform.identity
+                    //superView.transform = CGAffineTransform.identity
                     superView.frame = superView.originalFrame
                 })
                 
