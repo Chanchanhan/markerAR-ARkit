@@ -172,15 +172,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         if let imageAnchor = anchor as? ARImageAnchor {
             // Create a plane
             let plane = SCNPlane(width: imageAnchor.referenceImage.physicalSize.width, height: imageAnchor.referenceImage.physicalSize.height)
-//            if imageAnchor.referenceImage.name == "Different Countries" {
-//                plane.firstMaterial?.diffuse.contents = self.diffView.playerLayer.player
-//            }else if imageAnchor.referenceImage.name ==  "global"{
-//                plane.firstMaterial?.diffuse.contents = self.globalView.playerLayer.player
-//            }else if imageAnchor.referenceImage.name ==  "Freedom"{
-//                plane.firstMaterial?.diffuse.contents = self.freedomView.playerLayer.player
-//            }else if imageAnchor.referenceImage.name ==  "n-Action"{
-//                plane.firstMaterial?.diffuse.contents = self.actionView.playerLayer.player
-//            }
             DispatchQueue.main.async {
                 plane.firstMaterial?.diffuse.contents = self.viewDict[imageAnchor.referenceImage.name!]!.playerLayer.player
             }
