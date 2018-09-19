@@ -19,7 +19,7 @@ enum screenType{
 }
 
 class ZHPlayerOperationView: UIView {
-   
+    
     //滑块是否在拖动
     var isSlider: Bool = false
     
@@ -44,7 +44,7 @@ class ZHPlayerOperationView: UIView {
     @IBOutlet weak var play: UIButton!
     //缩放(旋转)
     @IBOutlet weak var rotation: UIButton!
-
+    
     //当前时间
     @IBOutlet weak var currentTime: UILabel!
     
@@ -95,7 +95,7 @@ class ZHPlayerOperationView: UIView {
     
     //3.手指抬起
     @IBAction func touchUp(_ sender: UISlider) {
-     
+        
         superView?.Play()
         isSlider = false
     }
@@ -135,23 +135,23 @@ class ZHPlayerOperationView: UIView {
                 
                 superView.frame = frame
                 superView.transform = CGAffineTransform(rotationAngle: (CGFloat)(M_PI_2))
-            
+                
             })
             
             rotation.isSelected = true
-        
+            
             UIApplication.shared.keyWindow?.addSubview(superView)
         }else
         {
-        
-           let orientation = UIDevice.current.orientation
+            
+            let orientation = UIDevice.current.orientation
             
             if orientation == .portrait
             {
                 //全屏状态
                 UIView.animate(withDuration: 0.3, animations: {
                     
-                    //superView.transform = CGAffineTransform.identity
+                    superView.transform = CGAffineTransform.identity
                     superView.frame = superView.originalFrame
                 })
                 
@@ -159,11 +159,11 @@ class ZHPlayerOperationView: UIView {
                 
                 superView.originalSuperView?.addSubview(superView)
             }
-
+            
             rotation.isSelected = false
         }
         
-       
+        
     }
     
     deinit {
@@ -264,14 +264,14 @@ extension ZHPlayerOperationView{
         let orientation = UIDevice.current.orientation
         
         switch orientation {
-     
+            
         case .portrait:
             
             guard let superView = superView else {
                 
                 return
             }
-        
+            
             if screenType == .fullScreen {
                 
                 screenType = .smallScreen
@@ -301,7 +301,7 @@ extension ZHPlayerOperationView{
             }
             
             fullScreenWithOrientation(orientation: orientation)
-        
+            
         default: break
             
             

@@ -136,7 +136,7 @@ class ZHPlayerView: UIView {
 extension ZHPlayerView{
     
     fileprivate func setupUI(){
-        self.layer.addSublayer(playerLayer)
+//        self.layer.addSublayer(playerLayer)
         addSubview(operationview)
         operationview.sliderChanged = {[weak self] (value) in
             
@@ -144,25 +144,9 @@ extension ZHPlayerView{
             
             self?.playerItem?.seek(to: time)
         }
-        Thread.detachNewThreadSelector(#selector(CheckPlay), toTarget: self, with: nil)
 
     }
-    @objc func CheckPlay()
-    {
-        while(true){
-            if(operationview.screenType == .fullScreen){
-                DispatchQueue.main.async {
-                    self.playerLayer.isHidden  = false
-                }
-                player.volume  = 1
-            }else{
-                DispatchQueue.main.async {
-                    self.playerLayer.isHidden  = true
-                }
-            }
-            
-        }
-    }
+    
     func Full()-> Bool{
         return operationview.screenType == .fullScreen
     }
