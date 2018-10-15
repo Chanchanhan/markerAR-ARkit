@@ -14,6 +14,7 @@ Platform:
 
 To see:
 
-![demo](https://github.com/mercari-cn-hackathon/Chanchanhan/blob/master/demo2.gif)
+![demo](https://github.com/Chanchanhan/markerAR-ARkit/blob/master/demo.gif)
 
-![demo](https://github.com/mercari-cn-hackathon/Chanchanhan/blob/master/demo.gif)
+![demo](https://github.com/Chanchanhan/markerAR-ARkit/blob/master/demo2.gif)
+
